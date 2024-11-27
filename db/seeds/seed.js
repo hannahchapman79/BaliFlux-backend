@@ -1,13 +1,18 @@
 const db = require("../connection")
 const format = require("pg-format")
 
-const seed = ( { } ) => {
+const seed = ( { users } ) => {
     return (
         db 
         // clear tables
         .query("DROP TABLE IF EXISTS users")
+        // re-create tables
         .then(() => {
             return createUsers();
+        })
+        // populate tables
+        .then(() => {
+            return insertUsers(users)
         })
     )
 }
@@ -19,6 +24,20 @@ function createUsers() {
         password VARCHAR(40) NOT NULL,
         email VARCHAR(100) NOT NULL
         )`);
+}
+
+function insertUsers(users) {
+    const nestedUsers = users.map((user) => {
+		return [user.username, user.password, user.email];
+	});
+	return db.query(
+		format(
+			`INSERT INTO users 
+  (username, password, email)
+  VALUES %L RETURNING *`,
+			nestedUsers
+		)
+	);
 }
 
 
