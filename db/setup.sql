@@ -1,0 +1,5 @@
+DROP DATABASE IF EXISTS baliflux_test;
+DROP DATABASE IF EXISTS baliflux;
+
+CREATE DATABASE baliflux_test;
+CREATE DATABASE baliflux;
