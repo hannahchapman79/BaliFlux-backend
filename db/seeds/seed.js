@@ -22,7 +22,8 @@ function createUsers() {
         user_id SERIAL PRIMARY KEY,
         username VARCHAR(40) NOT NULL,
         password VARCHAR(40) NOT NULL,
-        email VARCHAR(100) NOT NULL
+        email VARCHAR(100) NOT NULL,
+        created_date TIMESTAMP WITH TIME ZONE DEFAULT NOW()
         )`);
 }
 
