@@ -44,6 +44,7 @@ describe("seed", () => {
         expect(user).toHaveProperty("username");
         expect(user).toHaveProperty("password");
         expect(user).toHaveProperty("email");
+        expect(user).toHaveProperty("created_date");
       });
     });
   });
