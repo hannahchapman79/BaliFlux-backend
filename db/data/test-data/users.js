@@ -11,7 +11,7 @@ module.exports = [
     },
     {
       username: "travelforever",
-      password: "Star01",
+      password: "travelforever",
       email: "jess@gmail.com",
     },
     {
