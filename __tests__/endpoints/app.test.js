@@ -131,3 +131,24 @@ describe("GET /api", () => {
       });
     })
 })
+
+describe("/api/login", () => {
+  describe("POST", () => {
+    test("200: Logs in a user with valid credentials", () => {
+      const loginDetails = {
+        email: "grumpycat@gmail.com", 
+        password: "Goodbye01", 
+      };
+      return request(app)
+        .post("/api/login")
+        .send(loginDetails)
+        .expect(200)
+        .then(({ body }) => {
+          const { user } = body;
+          expect(user).toHaveProperty("username");
+          expect(user).toHaveProperty("email");
+          expect(user).not.toHaveProperty("password"); 
+        });
+    });
+  });
+});

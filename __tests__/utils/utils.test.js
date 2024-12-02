@@ -10,8 +10,8 @@ describe("Check user exists", () => {
         });
     })
     test("Resolves to an object of {username: true} when a username already exists", () => {
-        const username = "travelforever"
-        const email = "hellonature@gmail.com"
+        const username = "grumpycat"
+        const email = "grumpycat099@gmail.com"
         return checkUserExists(username, email).then((result) => {
             expect(result).toEqual({ username: true });
         });

@@ -1,4 +1,4 @@
-const {insertUser} = require("../models/users.model")
+const { insertUser, attemptLogin } = require("../models/users.model")
 
 exports.postUser = (request, response, next) => {
     const user = request.body;
@@ -13,3 +13,12 @@ exports.postUser = (request, response, next) => {
       })
       .catch(next);
   };
+
+  exports.postLoginAttempt = (request, response, next) => {
+    const loginAttempt = request.body;
+    attemptLogin(loginAttempt)
+    .then((user) => {
+      response.send({ user });
+    })
+    .catch(next);
+  }
