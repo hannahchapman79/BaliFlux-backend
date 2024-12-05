@@ -1,5 +1,10 @@
 const { checkUserExists } = require("../../utils")
 const db = require("../../db/connection")
+const seed = require("../../db/seeds/seed")
+const data = require("../../db/data")
+
+beforeEach(() => seed(data));
+afterAll(() => db.end());
 
 describe("Check user exists", () => {
     test("Resolves to an object", () => {
