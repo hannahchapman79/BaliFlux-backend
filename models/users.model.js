@@ -2,7 +2,7 @@ const db = require("../db/connection");
 const { checkUserExists } = require("../utils");
 const bcrypt = require("bcrypt");
 
-const saltRounds = 13; 
+const saltRounds = 13;
 
 exports.insertUser = async (newUser) => {
   if (!newUser.username || !newUser.password || !newUser.email) {
@@ -64,39 +64,60 @@ exports.insertUser = async (newUser) => {
 }
 
 
-  exports.attemptLogin = (loginAttempt) => {
-    if (!loginAttempt.email || !loginAttempt.password) {
-      return Promise.reject({
-        status: 400,
-        message: "All fields are required (email, password)",
-      });
-    }
-  
-    const obscureRejection = {
+exports.attemptLogin = (loginAttempt) => {
+  if (!loginAttempt.email || !loginAttempt.password) {
+    return Promise.reject({
       status: 400,
-      message: "Bad email or password",
-    };
-  
-    return db
-      .query(`SELECT user_id, username, email, password FROM users WHERE email = $1`, [loginAttempt.email])
-      .then(({ rows }) => {
-        const user = rows[0];
-  
-        if (!user) {
-          return Promise.reject(obscureRejection); 
-        }
-  
-        return bcrypt.compare(loginAttempt.password, user.password).then((isMatch) => {
-          if (!isMatch) {
-            return Promise.reject(obscureRejection); 
-          }
-  
-          const userWithoutPassword = {
-            user_id: user.user_id,
-            username: user.username,
-            email: user.email,
-          };
-          return userWithoutPassword;
-        });
-      });
+      message: "All fields are required (email, password)",
+    });
+  }
+
+  const obscureRejection = {
+    status: 400,
+    message: "Bad email or password",
   };
+
+  return db
+    .query(`SELECT user_id, username, email, password FROM users WHERE email = $1`, [loginAttempt.email])
+    .then(({ rows }) => {
+      const user = rows[0];
+
+      if (!user) {
+        return Promise.reject(obscureRejection);
+      }
+
+      return bcrypt.compare(loginAttempt.password, user.password).then((isMatch) => {
+        if (!isMatch) {
+          return Promise.reject(obscureRejection);
+        }
+
+        const userWithoutPassword = {
+          user_id: user.user_id,
+          username: user.username,
+          email: user.email,
+        };
+        return userWithoutPassword;
+      });
+    });
+};
+
+exports.selectUsers = () => {
+  return db
+    .query("SELECT user_id, username, email FROM users;")
+    .then((result) => {
+      return result.rows;
+    });
+};
+
+exports.selectUserByUsername = (username) => {
+  return db
+    .query(
+      `SELECT user_id, username, email 
+             FROM users 
+             WHERE username = $1`,
+      [username]
+    )
+    .then(({ rows }) => {
+      return rows[0] || null;
+    });
+};
