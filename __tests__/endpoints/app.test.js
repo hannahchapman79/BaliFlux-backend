@@ -4,6 +4,7 @@ const seed = require("../../db/seeds/seed")
 const data = require("../../db/data")
 const app = require("../../app")
 const endpoints = require("../../endpoints.json")
+const jwt = require("jsonwebtoken");
 
 beforeEach(() => seed(data));
 
@@ -188,11 +189,11 @@ describe("/api/users", () => {
   describe("DELETE", () => {
     test("responds with 200 status and deletes the user by user id", () => {
       return request(app)
-      .delete("/api/users/1")
-      .expect(200)
-      .then((response) => {
-        expect(response.body.message).toEqual("User successfully deleted");
-      });
+        .delete("/api/users/1")
+        .expect(200)
+        .then((response) => {
+          expect(response.body.message).toEqual("User successfully deleted");
+        });
     });
     test("responds with 404 error when the given user id doesn't exist in the database", () => {
       return request(app)
@@ -246,6 +247,20 @@ describe("/api/login", () => {
           expect(user).toHaveProperty("username", "orangecat");
           expect(user).toHaveProperty("email", "orangecat@gmail.com");
           expect(user).not.toHaveProperty("password");
+        });
+    });
+    test("400: Returns error if email or password are incorrect", async () => {
+      const loginDetails = {
+        email: "nonexistentuser@gmail.com",
+        password: "wrongpassword",
+      };
+
+      return request(app)
+        .post("/api/users/login")
+        .send(loginDetails)
+        .expect(400)
+        .then(({ body }) => {
+          expect(body.message).toEqual("Bad email or password");
         });
     });
   });
