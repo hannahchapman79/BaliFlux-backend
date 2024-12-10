@@ -185,6 +185,32 @@ describe("/api/users", () => {
         });
     });
   });
+  describe("DELETE", () => {
+    test("responds with 200 status and deletes the user by user id", () => {
+      return request(app)
+      .delete("/api/users/1")
+      .expect(200)
+      .then((response) => {
+        expect(response.body.message).toEqual("User successfully deleted");
+      });
+    });
+    test("responds with 404 error when the given user id doesn't exist in the database", () => {
+      return request(app)
+        .delete("/api/users/800")
+        .expect(404)
+        .then((response) => {
+          expect(response.body.message).toEqual("user does not exist");
+        });
+    });
+    test("responds with 400 bad request when the given an invalid user id", () => {
+      return request(app)
+        .delete("/api/users/not-a-number")
+        .expect(400)
+        .then((response) => {
+          expect(response.body.message).toEqual("invalid id type");
+        });
+    });
+  });
 })
 
 describe("/api/login", () => {
@@ -208,7 +234,7 @@ describe("/api/login", () => {
           const { user } = body;
           expect(user).toHaveProperty("username", "orangecat");
           expect(user).toHaveProperty("email", "orangecat@gmail.com");
-          expect(user).not.toHaveProperty("password"); 
+          expect(user).not.toHaveProperty("password");
         });
 
       return request(app)
