@@ -1,4 +1,4 @@
-const { insertUser, attemptLogin, selectUsers, selectUserByUsername, } = require("../models/users.model")
+const { insertUser, attemptLogin, selectUsers, selectUserByUsername, removeUserById } = require("../models/users.model")
 
 exports.postUser = (request, response, next) => {
     const user = request.body;
@@ -34,6 +34,17 @@ exports.postUser = (request, response, next) => {
       })
       .catch(next);
   };
+
+  exports.deleteUserById = (request, response, next) => {
+    const { user_id } = request.params;
+    removeUserById(user_id)
+    .then(() => {
+      response.status(200).send({ message: "User successfully deleted"});
+  })
+  .catch((err) => {
+      next(err);
+    })
+  }
 
   exports.postLoginAttempt = (request, response, next) => {
     const loginAttempt = request.body;
