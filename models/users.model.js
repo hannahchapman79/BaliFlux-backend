@@ -1,6 +1,7 @@
 const db = require("../db/connection");
 const { checkUserExists } = require("../utils");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 const saltRounds = 13;
 
@@ -91,12 +92,19 @@ exports.attemptLogin = (loginAttempt) => {
           return Promise.reject(obscureRejection);
         }
 
-        const userWithoutPassword = {
-          user_id: user.user_id,
-          username: user.username,
-          email: user.email,
+        const token = jwt.sign(user, process.env.JWT_SECRET, {expiresIn: "15min"})
+
+        const userResponse = {
+          user: {
+            user_id: user.user_id,
+            username: user.username,
+            email: user.email,
+          },
+          token: token
         };
-        return userWithoutPassword;
+        
+        return userResponse;
+
       });
     });
 };

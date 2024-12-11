@@ -216,7 +216,7 @@ describe("/api/users", () => {
 
 describe("/api/login", () => {
   describe("POST", () => {
-    test("200: Logs in a user with valid credentials and ensures bcrypt is working", async () => {
+    test("200: Logs in a user with valid credentials and returns a JWT", async () => {
       const userSignup = {
         username: "orangecat",
         password: "football000",
@@ -243,10 +243,21 @@ describe("/api/login", () => {
         .send(loginDetails)
         .expect(200)
         .then(({ body }) => {
-          const { user } = body;
+          const { token, user } = body;
           expect(user).toHaveProperty("username", "orangecat");
           expect(user).toHaveProperty("email", "orangecat@gmail.com");
           expect(user).not.toHaveProperty("password");
+
+          expect(token).toBeDefined();
+
+          const decoded = jwt.verify(token, process.env.JWT_SECRET); 
+          expect(decoded).toMatchObject({
+            user_id: expect.any(Number),
+            username: "orangecat",
+            email: "orangecat@gmail.com",
+          });
+
+          expect(decoded.exp).toBeGreaterThan(Math.floor(Date.now() / 1000));
         });
     });
     test("400: Returns error if email or password are incorrect", async () => {
