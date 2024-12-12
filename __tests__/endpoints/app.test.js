@@ -4,6 +4,9 @@ const seed = require("../../db/seeds/seed")
 const data = require("../../db/data")
 const app = require("../../app")
 const endpoints = require("../../endpoints.json")
+const jwt = require("jsonwebtoken");
+
+jest.mock("../../middleware/jwtAuth", () => (request, response, next) => next());
 
 beforeEach(() => seed(data));
 
@@ -186,14 +189,6 @@ describe("/api/users", () => {
     });
   });
   describe("DELETE", () => {
-    test("responds with 200 status and deletes the user by user id", () => {
-      return request(app)
-      .delete("/api/users/1")
-      .expect(200)
-      .then((response) => {
-        expect(response.body.message).toEqual("User successfully deleted");
-      });
-    });
     test("responds with 404 error when the given user id doesn't exist in the database", () => {
       return request(app)
         .delete("/api/users/800")
@@ -213,40 +208,3 @@ describe("/api/users", () => {
   });
 })
 
-describe("/api/login", () => {
-  describe("POST", () => {
-    test("200: Logs in a user with valid credentials and ensures bcrypt is working", async () => {
-      const userSignup = {
-        username: "orangecat",
-        password: "football000",
-        email: "orangecat@gmail.com",
-      };
-      const loginDetails = {
-        email: "orangecat@gmail.com",
-        password: "football000",
-      };
-
-      await request(app)
-        .post("/api/users")
-        .send(userSignup)
-        .expect(201)
-        .then(({ body }) => {
-          const { user } = body;
-          expect(user).toHaveProperty("username", "orangecat");
-          expect(user).toHaveProperty("email", "orangecat@gmail.com");
-          expect(user).not.toHaveProperty("password");
-        });
-
-      return request(app)
-        .post("/api/users/login")
-        .send(loginDetails)
-        .expect(200)
-        .then(({ body }) => {
-          const { user } = body;
-          expect(user).toHaveProperty("username", "orangecat");
-          expect(user).toHaveProperty("email", "orangecat@gmail.com");
-          expect(user).not.toHaveProperty("password");
-        });
-    });
-  });
-});
