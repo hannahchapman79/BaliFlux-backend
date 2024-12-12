@@ -4,7 +4,6 @@ const seed = require("../../db/seeds/seed")
 const data = require("../../db/data")
 const app = require("../../app")
 const endpoints = require("../../endpoints.json")
-const jwt = require("jsonwebtoken");
 
 jest.mock("../../middleware/jwtAuth", () => (request, response, next) => next());
 
