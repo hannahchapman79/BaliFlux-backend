@@ -1,31 +1,60 @@
 {
-    "GET /api": {
-      "description": "Serves up a JSON of all the available endpoints of the api"
+  "GET /api": {
+    "description": "Serves up a JSON of all the available endpoints of the api"
+  },
+  "POST /api/users": {
+    "description": "Posts a user following sign up and responds with the posted user excluding the password",
+    "exampleRequest": {
+      "username": "naturelover",
+      "password": "HelloWorld02",
+      "email": "iloveplants@gmail.com"
     },
-    "POST /api/users": {
-      "description": "Posts a user following sign up and responds with the posted user excluding the password",
-      "exampleRequest": {
-        "username": "naturelover",
-        "password": "HelloWorld02",
-        "email": "iloveplants@gmail.com"
+    "exampleResponse": {
+      "username": "naturelover",
+      "email": "iloveplants@gmail.com"
+    }
+  },
+  "GET /api/users": {
+    "description": "Responds with a list of all users",
+    "exampleResponse": [
+      {
+        "user_id": 1,
+        "username": "testuser",
+        "email": "ilovetravel@gmail.com"
       },
-      "exampleResponse": {
-        "username": "naturelover",
-        "email": "iloveplants@gmail.com"
+      {
+        "user_id": 2,
+        "username": "grumpycat",
+        "email": "grumpycat@gmail.com"
+      },
+      {
+        "user_id": 3,
+        "username": "travelforever",
+        "email": "jess@gmail.com"
       }
+    ]
+  },
+  "GET /api/users/grumpycat": {
+    "description": "Responds with the relevant user object",
+    "exampleResponse":
+      {
+        "user_id": 2,
+        "username": "grumpycat",
+        "email": "grumpycat@gmail.com"
+      }
+  },
+  "POST /api/users/login": {
+    "description": "Attempts to log a user in by username or email, responds with the user information upon success or and obscured error message on failure.",
+    "exampleRequest": {
+      "email": "naturelover",
+      "password": "HelloWorld02"
     },
-    "POST /api/users/login": {
-      "description": "Attempts to log a user in by username or email, responds with the user information upon success or and obscured error message on failure.",
-      "exampleRequest": {
-        "email": "naturelover",
-        "password": "HelloWorld02"
-      },
-      "exampleResponse": {
-        "user": {
-          "user_id": 4,
-          "username": "naturelover",
-          "email": "iloveplants@gmail.com"
-        }
+    "exampleResponse": {
+      "user": {
+        "user_id": 4,
+        "username": "naturelover",
+        "email": "iloveplants@gmail.com"
       }
     }
+  }
 }
