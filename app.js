@@ -1,9 +1,14 @@
 const express = require("express");
 const { usersRouter } = require("./routes")
 const { getEndpoints } = require("./controllers/endpoints.controller")
+const connectMongoDB = require("./db/mongoConnection")
+require('dotenv').config();
 
 const app = express();
 app.use(express.json());
+
+connectMongoDB();
+seedQuestions();
 
 app.get("/api", getEndpoints);
 app.use("/api/users", usersRouter);
