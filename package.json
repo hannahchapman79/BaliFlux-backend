@@ -1,13 +1,14 @@
 {
   "name": "baliflux-backend",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "jest",
-    "start": "node src/index.js",
+    "start": "node src/app.js",
     "setup-dbs": "psql -f ./db/setup.sql",
-    "dev": "nodemon src/index.js",
+    "dev": "nodemon src/app.js",
     "seed": "node ./db/seeds/run-seed.js",
+    "seed-questions": "node ./db/seeds/seedQuestions.js",
     "seed-prod": "NODE_ENV=production npm run seed",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
@@ -26,10 +27,12 @@
   "dependencies": {
     "bcrypt": "^5.1.1",
     "cors": "^2.8.5",
-    "dotenv": "^16.4.5",
+    "dotenv": "^16.4.7",
     "express": "^4.21.1",
     "helmet": "^8.0.0",
     "jsonwebtoken": "^9.0.2",
+    "mongodb": "^6.12.0",
+    "mongoose": "^8.9.0",
     "pg": "^8.13.1",
     "pg-format": "^1.0.4"
   },
