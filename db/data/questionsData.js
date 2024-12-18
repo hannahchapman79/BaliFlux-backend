@@ -64,7 +64,7 @@ const questionsData = [
     },
     {
         question: "How many days is your trip?",
-        answers: null,
+        answers: [],
         type: "input",
     }
 ];
