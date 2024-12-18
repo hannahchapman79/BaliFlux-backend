@@ -1,14 +1,24 @@
 const express = require("express");
-const { usersRouter } = require("./routes")
-const { getEndpoints } = require("./controllers/endpoints.controller")
-const connectMongoDB = require("./db/mongoConnection")
-require('dotenv').config();
+const { usersRouter } = require("./routes");
+const { getEndpoints } = require("./controllers/endpoints.controller");
+const connectMongoDB = require("./db/mongoConnection");
+const seedQuestions = require("./db/seeds/seedQuestions");
+require("dotenv").config();
 
 const app = express();
 app.use(express.json());
 
-connectMongoDB();
-seedQuestions();
+const initializeServer = async () => {
+  try {
+    await connectMongoDB(); 
+    await seedQuestions();
+  } catch (error) {
+    console.error("Initialization error:", error);
+    process.exit(1);
+  }
+};
+
+initializeServer();
 
 app.get("/api", getEndpoints);
 app.use("/api/users", usersRouter);
