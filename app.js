@@ -1,5 +1,5 @@
 const express = require("express");
-const { usersRouter } = require("./routes");
+const { usersRouter, questionsRouter } = require("./routes");
 const { getEndpoints } = require("./controllers/endpoints.controller");
 const connectMongoDB = require("./db/mongoConnection");
 const seedQuestions = require("./db/seeds/seedQuestions");
@@ -9,12 +9,14 @@ const app = express();
 app.use(express.json());
 
 const initializeServer = async () => {
-  try {
-    await connectMongoDB(); 
-    await seedQuestions();
-  } catch (error) {
-    console.error("Initialization error:", error);
-    process.exit(1);
+  if (process.env.NODE_ENV !== "test") {
+    try {
+      await connectMongoDB();
+      await seedQuestions();
+    } catch (error) {
+      console.error("Initialization error:", error);
+      process.exit(1);
+    }
   }
 };
 
@@ -22,6 +24,7 @@ initializeServer();
 
 app.get("/api", getEndpoints);
 app.use("/api/users", usersRouter);
+app.use("/api/questions", questionsRouter);
 
 app.use((error, request, response, next) => {
   if (error.code === "22P02") {
