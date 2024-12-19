@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Question = require("../../models/questions");
+const Question = require("../../models/questions.model");
 const questionsData = require("../data/questionsData");
 
 const seedQuestions = async () => {
