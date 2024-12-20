@@ -34,14 +34,20 @@
       }
     ]
   },
+  "DELETE /api/users/2": {
+    "description": "Deletes user by user id",
+    "exampleResponse": {
+      "status": 200,
+      "message": "User successfully deleted"
+    } 
+  },
   "GET /api/users/grumpycat": {
     "description": "Responds with the relevant user object",
-    "exampleResponse":
-      {
-        "user_id": 2,
-        "username": "grumpycat",
-        "email": "grumpycat@gmail.com"
-      }
+    "exampleResponse": {
+      "user_id": 2,
+      "username": "grumpycat",
+      "email": "grumpycat@gmail.com"
+    }
   },
   "POST /api/users/login": {
     "description": "Attempts to log a user in by username or email, responds with the user information upon success or and obscured error message on failure.",
