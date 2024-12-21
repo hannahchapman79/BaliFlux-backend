@@ -11,7 +11,7 @@ afterAll(() => db.end());
 
 describe("/api/users", () => {
     describe("DELETE", () => {
-        test("responds with 200 status, validates JWT, and deletes the user by user id", () => {
+        test("200: Validates JWT, and deletes the user by user id", () => {
             const validToken = jwt.sign(
                 { user_id: 1, username: "testuser", email: "ilovetravel@gmail.com" },
                 process.env.JWT_SECRET,

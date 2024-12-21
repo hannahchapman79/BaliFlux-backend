@@ -188,7 +188,7 @@ describe("/api/users", () => {
     });
   });
   describe("DELETE", () => {
-    test("responds with 404 error when the given user id doesn't exist in the database", () => {
+    test("404: Responds with 'user does not exist'when the given user id doesn't exist in the database", () => {
       return request(app)
         .delete("/api/users/800")
         .expect(404)
@@ -196,7 +196,7 @@ describe("/api/users", () => {
           expect(response.body.message).toEqual("user does not exist");
         });
     });
-    test("responds with 400 bad request when the given an invalid user id", () => {
+    test("400: Responds with bad request when the given an invalid user id", () => {
       return request(app)
         .delete("/api/users/not-a-number")
         .expect(400)
