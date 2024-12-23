@@ -19,7 +19,7 @@ describe("/api/users", () => {
             );
             return request(app)
                 .delete("/api/users/1")
-                .set("Authorization", `${validToken}`)
+                .set("Authorization", `Bearer ${validToken}`)
                 .expect(200)
                 .then((response) => {
                     expect(response.body.message).toEqual("User successfully deleted");
