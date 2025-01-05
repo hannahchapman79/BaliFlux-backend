@@ -62,5 +62,44 @@
         "email": "iloveplants@gmail.com"
       }
     }
+  },
+  "GET /api/questions": {
+    "description": "Responds with an array of questions and the associated answers",
+    "exampleResponse": {
+      "questions": [
+        {
+          "_id": "67626589287c6db5b1ccacb1",
+          "question": "What type of experiences do you prefer?",
+          "answers": [
+            "Beaches",
+            "Spa & Wellness",
+            "Nightlife",
+            "Culture & Temples",
+            "Jungle & Nature",
+            "Adventure Sports",
+            "Hidden Gems",
+            "Surfing",
+            "Shopping",
+            "Fitness & Gyms"
+          ],
+          "__v": 0
+        },
+        {
+          "_id": "67626589287c6db5b1ccacb2",
+          "question": "What type of food experiences excite you?",
+          "answers": [
+            "Local Cuisine",
+            "Fine Dining",
+            "Beach Clubs",
+            "Brunch Spots",
+            "Vegan & Healthy Eats",
+            "Coffee Culture",
+            "Unique Dining",
+            "Any top rated - I'm a foodie!"
+          ],
+          "__v": 0
+        }
+      ]
   }
+}
 }
