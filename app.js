@@ -1,5 +1,5 @@
 const express = require("express");
-const { usersRouter, questionsRouter } = require("./routes");
+const { usersRouter, questionsRouter, itineraryRouter } = require("./routes");
 const { getEndpoints } = require("./controllers/endpoints.controller");
 const connectMongoDB = require("./db/mongoConnection");
 const seedQuestions = require("./db/seeds/seedQuestions");
@@ -25,6 +25,7 @@ initializeServer();
 app.get("/api", getEndpoints);
 app.use("/api/users", usersRouter);
 app.use("/api/questions", questionsRouter);
+app.use("/api/itinerary", itineraryRouter);
 
 app.use((error, request, response, next) => {
   if (error.code === "22P02") {

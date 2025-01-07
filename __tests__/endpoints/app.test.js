@@ -206,4 +206,3 @@ describe("/api/users", () => {
     });
   });
 })
-
