@@ -101,5 +101,90 @@
         }
       ]
   }
-}
+},
+"POST api/itinerary": {
+  "description": "Posts a user form response and uses AI to respond with a generated itinerary curated to their preferences",
+  "exampleRequest": {
+    "userId": "12345",
+    "answers": {
+      "interests": ["Beaches", "Hidden Gems"],
+      "cuisine": ["Coffee Culture", "Fine Dining"],
+      "tripLength": "7 days"
+    }
+  },
+  "exampleResponse":
+    {
+      "userId": "12345",
+      "result": {
+        "header": "Bali's Hidden Gems",
+        "overview": "Experience the best of Bali's beaches and fine dining scene in this 2-day itinerary, exploring hidden gems and immersing yourself in local coffee culture.",
+        "days": [
+          {
+            "dayTitle": "Day 1: Beaches and Coffee",
+            "activities": [
+              {
+                "title": "Nusa Dua Beach",
+                "description": "Relax on this stunning white-sand beach with crystal-clear waters, perfect for swimming and sunbathing.",
+                "details": {
+                  "cost": "Free",
+                  "duration": "2 hours",
+                  "notes": "Best visited in the morning"
+                }
+              },
+              {
+                "title": "Seniman Coffee",
+                "description": "Indulge in Bali's vibrant coffee culture at this boutique coffee studio, offering a wide range of specialty coffee drinks.",
+                "details": {
+                  "cost": "$10",
+                  "duration": "1 hour",
+                  "notes": "Try their signature coffee cocktails"
+                }
+              },
+              {
+                "title": "Dinner at Cuca",
+                "description": "Savor modern Asian cuisine at this acclaimed restaurant, known for its innovative dishes and extensive wine list.",
+                "details": {
+                  "cost": "$50",
+                  "duration": "2 hours",
+                  "notes": "Reservations recommended"
+                }
+              }
+            ]
+          },
+          {
+            "dayTitle": "Day 2: Hidden Coves and Fine Dining",
+            "activities": [
+              {
+                "title": "Balangan Beach",
+                "description": "Discover this secluded beach with its picturesque cliffs and turquoise waters, perfect for snorkeling and exploration.",
+                "details": {
+                  "cost": "Free",
+                  "duration": "2 hours",
+                  "notes": "Be cautious of strong currents"
+                }
+              },
+              {
+                "title": "Lunch at Single Fin",
+                "description": "Enjoy stunning views of the Indian Ocean while savoring international cuisine at this clifftop restaurant.",
+                "details": {
+                  "cost": "$20",
+                  "duration": "1.5 hours",
+                  "notes": "Try their seafood dishes"
+                }
+              },
+              {
+                "title": "Dinner at Locavore",
+                "description": "Experience fine dining at its best, with a focus on locally sourced ingredients and creative, farm-to-table cuisine.",
+                "details": {
+                  "cost": "$70",
+                  "duration": "3 hours",
+                  "notes": "Reservations essential"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
 }

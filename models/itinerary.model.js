@@ -73,19 +73,29 @@ const generateItinerary = async (userId, answers) => {
       response_format: { type: 'json_object' },
     });
 
-    const result = completion?.choices?.[0]?.message?.content;
-    if (!result) {
+    const rawResult = completion?.choices?.[0]?.message?.content;
+
+    if (!rawResult) {
       throw new Error('No valid response from AI');
+    }
+
+    let parsedResult;
+    try {
+      parsedResult = JSON.parse(rawResult);
+    } catch (parseError) {
+      console.error('Failed to parse AI response:', parseError);
+      throw new Error('Invalid JSON response from AI');
     }
 
     const newItinerary = new Itinerary({
       userId,
       prompt,
-      result,
+      result: JSON.stringify(parsedResult),
     });
+
     await newItinerary.save();
 
-    return { userId, result };
+    return { userId, result: parsedResult }; 
   } catch (error) {
     console.error('Error generating itinerary:', error.message || error);
     throw new Error('Failed to generate itinerary');
