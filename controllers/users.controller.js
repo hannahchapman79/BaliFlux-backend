@@ -41,8 +41,8 @@ exports.deleteUserById = (request, response, next) => {
     .then(() => {
       response.status(200).send({ message: "User successfully deleted" });
     })
-    .catch((err) => {
-      next(err);
+    .catch((error) => {
+      next(error);
     })
 }
 

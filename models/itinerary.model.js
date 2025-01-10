@@ -102,4 +102,13 @@ const generateItinerary = async (userId, answers) => {
   }
 };
 
-module.exports = { Itinerary, generateItinerary };
+const selectItineraryByUserId = async (userId) => {
+  try {
+    return await Itinerary.find({ userId });
+  } catch (error) {
+    console.error('Error fetching itineraries:', error);
+    throw new Error('Failed to fetch itineraries');
+  }
+}
+
+module.exports = { Itinerary, generateItinerary, selectItineraryByUserId };
