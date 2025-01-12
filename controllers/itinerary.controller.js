@@ -25,7 +25,7 @@ exports.getItineraryByUserId = async (request, response, next) => {
         }
         
         const userItineraries = await selectItineraryByUserId(userId)
-        response.status(200).send({ userItineraries })
+        response.status(200).json({ userItineraries })
     } catch (error) {
         next(error)
     }
