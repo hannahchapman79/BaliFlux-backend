@@ -6,7 +6,7 @@ const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 const itinerarySchema = new mongoose.Schema({
   userId: { type: String, required: true },
   prompt: { type: String, required: true },
-  result: { type: String, required: true },
+  result: { type: mongoose.Schema.Types.Mixed, required: true },
   createdAt: { type: Date, default: Date.now },
 });
 
@@ -81,21 +81,20 @@ const generateItinerary = async (userId, answers) => {
 
     let parsedResult;
     try {
-      parsedResult = JSON.parse(rawResult);
+      parsedResult = JSON.parse(rawResult); 
     } catch (parseError) {
       console.error('Failed to parse AI response:', parseError);
-      throw new Error('Invalid JSON response from AI');
     }
 
     const newItinerary = new Itinerary({
       userId,
       prompt,
-      result: JSON.stringify(parsedResult),
+      result: parsedResult, 
     });
 
     await newItinerary.save();
 
-    return { userId, result: parsedResult }; 
+    return { userId, result: parsedResult };
   } catch (error) {
     console.error('Error generating itinerary:', error.message || error);
     throw new Error('Failed to generate itinerary');
@@ -104,11 +103,21 @@ const generateItinerary = async (userId, answers) => {
 
 const selectItineraryByUserId = async (userId) => {
   try {
-    return await Itinerary.find({ userId });
+    if (!userId || typeof userId !== 'string' || userId.trim() === '') {
+      throw new Error('Invalid or missing userId');
+    }
+
+    const itineraries = await Itinerary.find({ userId });
+
+    if (!itineraries || itineraries.length === 0) {
+      throw new Error('No itineraries found for the provided userId');
+    }
+
+    return itineraries;
   } catch (error) {
     console.error('Error fetching itineraries:', error);
     throw new Error('Failed to fetch itineraries');
   }
-}
+};
 
 module.exports = { Itinerary, generateItinerary, selectItineraryByUserId };

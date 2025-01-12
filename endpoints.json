@@ -186,5 +186,57 @@
         ]
       }
     }
+  },
+  "GET /api/itinerary/12467": {
+    "description": "Responds with saved itineraries for the given userId",
+    "exampleResponse": {
+        "userItineraries": [
+          {
+            "_id": "6783aee8d55660a83e21e1af",
+            "userId": "12467",
+            "prompt": "\n      Create a Bali travel itinerary based on the following preferences:\n      - Interests: N/A\n      - Cuisine: Coffee Culture,Beach Club\n      - Vibe: N/A\n      - Nature: N/A\n      - Travel Style: N/A\n      - Length of trip: 1 day\n    \n      Return the response as a JSON object with the following structure:\n\n      {\n        \"header\": \"Short, captivating title (max 6 words)\",\n        \"overview\": \"1-2 sentence trip summary highlighting the experience\",\n        \"days\": [\n          {\n            \"dayTitle\": \"Day 1: Descriptive Title\",\n            \"activities\": [\n              {\n                \"title\": \"Activity Name\",\n                \"description\": \"1-2 sentence activity summary\",\n                \"details\": {\n                  \"cost\": \"e.g., $20, Free\",\n                  \"duration\": \"e.g., 2 hours\",\n                  \"notes\": \"e.g., Best visited in the morning\"\n                }\n              }\n            ]\n          },\n          {\n            \"dayTitle\": \"Day 2: Descriptive Title\",\n            \"activities\": [\n              {\n                \"title\": \"Activity Name\",\n                \"description\": \"1-2 sentence activity summary\",\n                \"details\": {\n                  \"cost\": \"e.g., $50\",\n                  \"duration\": \"e.g., Half-day\",\n                  \"notes\": \"Bring sunscreen\"\n                }\n              }\n            ]\n          }\n        ]\n      }\n\n      Guidelines:\n      - Keep text concise and scannable.\n      - Avoid recommendations in Kuta or Denpasar.\n      - Ensure up-to-date, relevant suggestions.\n      - Maintain a professional but friendly tone.\n    ",
+            "result": {
+              "header": "Bali Coffee Delight",
+              "overview": "Experience Bali's coffee culture and beach clubs in a day, exploring the island's trending spots.",
+              "days": [
+                {
+                  "dayTitle": "Day 1: Coffee and Beach",
+                  "activities": [
+                    {
+                      "title": "Morning Coffee at Seniman Coffee",
+                      "description": "Start the day with a cup of artisanal coffee at Seniman Coffee in Ubud, known for its unique brewing methods.",
+                      "details": {
+                        "cost": "Free to visit, coffee from $5",
+                        "duration": "1-2 hours",
+                        "notes": "Open from 8 AM"
+                      }
+                    },
+                    {
+                      "title": "Lunch at Ulekan Beach Club",
+                      "description": "Head to Kuta's alternative, Ulekan Beach Club in Nusa Dua, for a delicious lunch and stunning beach views.",
+                      "details": {
+                        "cost": "Lunch from $15",
+                        "duration": "2 hours",
+                        "notes": "Beach activities available"
+                      }
+                    },
+                    {
+                      "title": "Sunset at Azul Beach Club",
+                      "description": "End the day with a breathtaking sunset at Azul Beach Club in North Kuta, offering cocktails and chillout music.",
+                      "details": {
+                        "cost": "Free entry, drinks from $10",
+                        "duration": "Until sunset",
+                        "notes": "Best for sunset views"
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "createdAt": "2025-01-12T12:00:40.286Z",
+            "__v": 0
+          }
+        ]
+      }
+    }
   }
-}
