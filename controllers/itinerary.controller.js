@@ -17,13 +17,10 @@ exports.postItinerary = async (request, response, next) => {
 
 exports.getItineraryByUserId = async (request, response, next) => {
     try {
-
         const { userId } = request.params;
-        
         if (!userId) {
             return response.status(400).send({ message: 'userId is required' });
         }
-        
         const userItineraries = await selectItineraryByUserId(userId)
         response.status(200).json({ userItineraries })
     } catch (error) {
