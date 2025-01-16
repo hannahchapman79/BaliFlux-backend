@@ -12,7 +12,7 @@ const itinerarySchema = new mongoose.Schema({
 
 const Itinerary = mongoose.model('Itinerary', itinerarySchema);
 
-const generateItinerary = async (userId, answers) => {
+const generateItinerary = async (userId, answers, isGuest = false) => {
   try {
     const prompt = `
       Create a Bali travel itinerary based on the following preferences:
@@ -86,15 +86,16 @@ const generateItinerary = async (userId, answers) => {
       console.error('Failed to parse AI response:', parseError);
     }
 
-    const newItinerary = new Itinerary({
-      userId,
-      prompt,
-      result: parsedResult, 
-    });
+    if (!isGuest) {
+      const newItinerary = new Itinerary({
+        userId,
+        prompt,
+        result: parsedResult, 
+      });
+      await newItinerary.save();
+    }
 
-    await newItinerary.save();
-
-    return { userId, result: parsedResult };
+    return { userId: isGuest ? 'guest' : userId, result: parsedResult };
   } catch (error) {
     console.error('Error generating itinerary:', error.message || error);
     throw new Error('Failed to generate itinerary');

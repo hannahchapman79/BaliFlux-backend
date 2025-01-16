@@ -2,13 +2,13 @@ const { generateItinerary, selectItineraryByUserId } = require("../models/itiner
 
 exports.postItinerary = async (request, response, next) => {
     try {
-        const { userId, answers } = request.body;
+        const { userId, answers, isGuest = false } = request.body;
 
-        if (!userId || !answers) {
-            return response.status(400).json({ message: 'userId and answers are required' });
+        if (!userId && !isGuest || !answers) {
+            return response.status(400).json({ message: 'answers are required and userId is required for non-guest users' });
         }
 
-        const generatedItinerary = await generateItinerary(userId, answers);
+        const generatedItinerary = await generateItinerary(userId, answers, isGuest);
         response.status(201).send(generatedItinerary);
     } catch (error) {
         next(error);
