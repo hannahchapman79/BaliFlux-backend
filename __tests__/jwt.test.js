@@ -1,32 +1,56 @@
 const request = require("supertest");
 const jwt = require("jsonwebtoken");
-const db = require("../../db/connection")
-const seed = require("../../db/seeds/seed")
-const data = require("../../db/data")
-const app = require("../../app")
+const mongoose = require('mongoose');
+const { MongoMemoryServer } = require('mongodb-memory-server');
+const app = require("../app")
+const { User } = require("../models/users.model");
 
-beforeEach(() => seed(data));
+let mongoServer;
 
-afterAll(() => db.end());
+beforeAll(async () => {
+  mongoServer = await MongoMemoryServer.create();
+  await mongoose.connect(mongoServer.getUri());
+});
+
+afterAll(async () => {
+  await mongoose.disconnect();
+  await mongoServer.stop();
+});
+
+beforeEach(async () => {
+  await mongoose.connection.dropDatabase();
+});
 
 describe("/api/users", () => {
     describe("DELETE", () => {
-        test("200: Validates JWT, and deletes the user by user id", () => {
+        test("200: Validates JWT, and deletes the user by user id", async () => {
+            const user = new User({
+                username: "testuser",
+                email: "ilovetravel@gmail.com",
+                password: "hashedpassword123"
+            });
+            const savedUser = await user.save();
+            
             const validToken = jwt.sign(
-                { user_id: 1, username: "testuser", email: "ilovetravel@gmail.com" },
+                { 
+                    user_id: savedUser._id, 
+                    username: "testuser", 
+                    email: "ilovetravel@gmail.com" 
+                },
                 process.env.JWT_SECRET,
                 { expiresIn: "15 min" }
             );
+
             return request(app)
-                .delete("/api/users/1")
+                .delete(`/api/users/${savedUser._id}`)
                 .set("Authorization", `Bearer ${validToken}`)
                 .expect(200)
                 .then((response) => {
                     expect(response.body.message).toEqual("User successfully deleted");
                 });
         });
-    })
-})
+    });
+});
 
 describe("/api/login", () => {
     describe("POST", () => {
@@ -50,6 +74,7 @@ describe("/api/login", () => {
                     expect(user).toHaveProperty("username", "orangecat");
                     expect(user).toHaveProperty("email", "orangecat@gmail.com");
                     expect(user).not.toHaveProperty("password");
+                    expect(user).toHaveProperty("user_id"); 
                 });
 
             return request(app)
@@ -61,19 +86,21 @@ describe("/api/login", () => {
                     expect(user).toHaveProperty("username", "orangecat");
                     expect(user).toHaveProperty("email", "orangecat@gmail.com");
                     expect(user).not.toHaveProperty("password");
+                    expect(user).toHaveProperty("user_id");
 
                     expect(token).toBeDefined();
 
                     const decoded = jwt.verify(token, process.env.JWT_SECRET);
                     expect(decoded).toMatchObject({
-                        user_id: expect.any(Number),
                         username: "orangecat",
-                        email: "orangecat@gmail.com",
+                        email: "orangecat@gmail.com"
                     });
+                    expect(decoded).toHaveProperty("user_id"); 
 
                     expect(decoded.exp).toBeGreaterThan(Math.floor(Date.now() / 1000));
                 });
         });
+
         test("400: Returns error if email or password are incorrect", async () => {
             const loginDetails = {
                 email: "nonexistentuser@gmail.com",
