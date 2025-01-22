@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-const db = require("../db/connection")
 
 function verifyToken(request, response, next) {
     const authHeader = request.headers.authorization || request.headers.Authorization;

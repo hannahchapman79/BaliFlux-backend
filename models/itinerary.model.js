@@ -1,10 +1,8 @@
 const mongoose = require('mongoose');
 const Groq = require('groq-sdk');
 
-const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
-
 const itinerarySchema = new mongoose.Schema({
-  userId: { type: String, required: true },
+  userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
   prompt: { type: String, required: true },
   result: { type: mongoose.Schema.Types.Mixed, required: true },
   createdAt: { type: Date, default: Date.now },
@@ -13,7 +11,18 @@ const itinerarySchema = new mongoose.Schema({
 const Itinerary = mongoose.model('Itinerary', itinerarySchema);
 
 const generateItinerary = async (userId, answers, isGuest = false) => {
+
+  const groq = new Groq({ apiKey: process.env['GROQ_API_KEY'] });
+
   try {
+
+    if (!isGuest && (!userId || typeof userId !== 'string')) {
+      throw { 
+        status: 400, 
+        message: "Invalid or missing userId" 
+      };
+  }
+
     const prompt = `
       Create a Bali travel itinerary based on the following preferences:
       - Interests: ${answers.interests || 'N/A'}
@@ -76,14 +85,20 @@ const generateItinerary = async (userId, answers, isGuest = false) => {
     const rawResult = completion?.choices?.[0]?.message?.content;
 
     if (!rawResult) {
-      throw new Error('No valid response from AI');
+      throw { 
+        status: 500, 
+        message: "No valid response received from AI service" 
+      };
     }
 
     let parsedResult;
     try {
       parsedResult = JSON.parse(rawResult); 
     } catch (parseError) {
-      console.error('Failed to parse AI response:', parseError);
+      throw { 
+        status: 500, 
+        message: "Failed to parse AI response into valid JSON" 
+      };
     }
 
     if (!isGuest) {
@@ -97,27 +112,38 @@ const generateItinerary = async (userId, answers, isGuest = false) => {
 
     return { userId: isGuest ? 'guest' : userId, result: parsedResult };
   } catch (error) {
-    console.error('Error generating itinerary:', error.message || error);
-    throw new Error('Failed to generate itinerary');
+    throw { 
+      status: 500, 
+      message: "Failed to generate itinerary",
+      error: error.message
+  };
   }
 };
 
 const selectItineraryByUserId = async (userId) => {
   try {
     if (!userId || typeof userId !== 'string' || userId.trim() === '') {
-      throw new Error('Invalid or missing userId');
+      throw { 
+        status: 400, 
+        message: "Invalid or missing userId" 
+      };
     }
 
     const itineraries = await Itinerary.find({ userId });
 
     if (!itineraries || itineraries.length === 0) {
-      throw new Error('No itineraries found for the provided userId');
+      throw { 
+        status: 404, 
+        message: "No itineraries found for the provided userId" 
+      };
     }
 
     return itineraries;
   } catch (error) {
-    console.error('Error fetching itineraries:', error);
-    throw new Error('Failed to fetch itineraries');
+    throw { 
+      status: 500, 
+      message: "Failed to fetch itineraries" 
+    };
   }
 };
 
