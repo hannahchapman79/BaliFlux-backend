@@ -1,10 +1,10 @@
 {
   "name": "baliflux-backend",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "listen.js",
   "scripts": {
     "test": "NODE_ENV=test jest --runInBand --verbose ",
-    "start": "node app.js",
+    "start": "node listen.js",
     "dev": "nodemon app.js",
     "seed-questions": "node ./db/seeds/seedQuestions.js",
     "seed-prod": "NODE_ENV=production npm run seed-questions",
