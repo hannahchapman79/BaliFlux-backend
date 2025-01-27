@@ -69,11 +69,25 @@ const generateItinerary = async (userId, answers, isGuest = false) => {
         ]
       }
 
-      Guidelines:
-      - Keep text concise and scannable.
-      - Avoid recommendations in Kuta or Denpasar.
-      - Ensure up-to-date, relevant suggestions.
-      - Maintain a professional but friendly tone.
+Constraints:
+Locations to avoid: Kuta, Nusa Dua, Denpasar.
+Only include Sanur if the vibe stated is family friendly
+
+Preferred areas:
+If beaches are stated: prioritise either Nusa Penida, Uluwatu or Nusa Lebongan.
+If waterfalls are stated: Prioritise Leke Leke waterfall, Gembleng Waterfall, Tukad Cepung Waterfall or Nungnung Waterfall (Many waterfalls are over touristy but these ones are not)
+If unique dining is stated: Prioritise recommending "The Cave" (Uluwatu), "Koral Restaurant - The Apurva Kempinski Bali" (Nusa Dua), Sa'Mesa (Canggu), Merlins (Ubud) and Gajah Putih (Ubud).
+
+Important Requirements: 
+1. All locations must be real, verifiable places in Bali (2024)
+2. Consider typical Bali traffic in travel times
+3. Ensure logical geographic progression between activities 
+4. Use current (2024) prices 
+5. Include only currently operating establishments 
+6. Ensure realistic timing between activities 
+7. Maximum travel time per day: 3 hours
+
+Please generate a logistically sound itinerary following these specifications and format requirements.
     `;
 
     const completion = await groq.chat.completions.create({
