@@ -84,42 +84,6 @@ describe("/api/users", () => {
   });
 
   describe("GET", () => {
-    test("200: Responds with a list of all users", async () => {
-      const testUsers = await User.create([
-        { username: "user1", email: "user1@test.com", password: "password123" },
-        { username: "user2", email: "user2@test.com", password: "password123" },
-        { username: "user3", email: "user3@test.com", password: "password123" }
-      ]);
-
-      return request(app)
-        .get("/api/users")
-        .expect(200)
-        .then((response) => {
-          expect(response.body.users.length).toBe(3);
-          response.body.users.forEach((user) => {
-            expect(user).toHaveProperty("user_id");
-            expect(user).toHaveProperty("username");
-            expect(user).toHaveProperty("email");
-            expect(user).not.toHaveProperty("password");
-          });
-        });
-    });
-
-    test("200: Users list does not include passwords", async () => {
-      await User.create([
-        { username: "user1", email: "user1@test.com", password: "password123" }
-      ]);
-
-      return request(app)
-        .get("/api/users")
-        .expect(200)
-        .then((response) => {
-          response.body.users.forEach((user) => {
-            expect(user).not.toHaveProperty("password");
-          });
-        });
-    });
-
     test("200: Responds with the user object when the username exists", async () => {
       const testUser = await User.create({
         username: "katie07",

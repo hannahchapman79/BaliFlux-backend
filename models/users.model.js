@@ -110,15 +110,6 @@ exports.attemptLogin = async (loginAttempt) => {
   };
 };
 
-exports.selectUsers = async () => {
-  const users = await User.find({}, { password: 0 });
-  return users.map(user => ({
-    user_id: user._id,
-    username: user.username,
-    email: user.email
-  }));
-};
-
 exports.selectUserByUsername = async (username) => {
   const user = await User.findOne({ username }, { password: 0 });
   if (!user) return null;
@@ -142,7 +133,6 @@ module.exports = {
   User,
   insertUser: exports.insertUser,
   attemptLogin: exports.attemptLogin,
-  selectUsers: exports.selectUsers,
   selectUserByUsername: exports.selectUserByUsername,
   removeUserById: exports.removeUserById
 };

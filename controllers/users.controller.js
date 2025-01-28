@@ -1,19 +1,10 @@
-const { insertUser, attemptLogin, selectUsers, selectUserByUsername, removeUserById } = require("../models/users.model")
+const { insertUser, attemptLogin, selectUserByUsername, removeUserById } = require("../models/users.model")
 
 exports.postUser = async (request, response, next) => {
   try {
     const user = request.body;
     const newUser = await insertUser(user);
     response.status(201).send({ user: newUser });
-  } catch (error) {
-    next(error);
-  }
-};
-
-exports.getUsers = async (request, response, next) => {
-  try {
-    const users = await selectUsers();
-    response.status(200).send({ users });
   } catch (error) {
     next(error);
   }

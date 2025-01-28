@@ -14,26 +14,6 @@
       "email": "iloveplants@gmail.com"
     }
   },
-  "GET /api/users": {
-    "description": "Responds with a list of all users",
-    "exampleResponse": [
-      {
-        "user_id": 1,
-        "username": "testuser",
-        "email": "ilovetravel@gmail.com"
-      },
-      {
-        "user_id": 2,
-        "username": "grumpycat",
-        "email": "grumpycat@gmail.com"
-      },
-      {
-        "user_id": 3,
-        "username": "travelforever",
-        "email": "jess@gmail.com"
-      }
-    ]
-  },
   "DELETE /api/users/2": {
     "description": "Deletes user by user id",
     "exampleResponse": {
