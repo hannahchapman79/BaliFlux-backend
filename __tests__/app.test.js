@@ -121,7 +121,7 @@ describe("/api/users", () => {
       });
 
       return request(app)
-        .delete(`/api/users/${testUser._id}`)
+        .delete(`/api/users/id/${testUser._id}`)
         .expect(200)
         .then((response) => {
           expect(response.body.message).toBe("User successfully deleted");
@@ -131,7 +131,7 @@ describe("/api/users", () => {
     test("404: Responds with 'User not found' when the given user id doesn't exist", () => {
       const nonExistentId = new mongoose.Types.ObjectId();
       return request(app)
-        .delete(`/api/users/${nonExistentId}`)
+        .delete(`/api/users/id/${nonExistentId}`)
         .expect(404)
         .then((response) => {
           expect(response.body.message).toBe("user does not exist");
@@ -140,7 +140,7 @@ describe("/api/users", () => {
 
     test("400: Responds with bad request when given an invalid user id", () => {
       return request(app)
-        .delete("/api/users/not-a-valid-id")
+        .delete("/api/users/id/not-a-valid-id")
         .expect(400)
         .then((response) => {
           expect(response.body.message).toBe("Invalid ID format");
