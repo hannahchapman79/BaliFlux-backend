@@ -21,7 +21,7 @@ beforeEach(async () => {
   await mongoose.connection.dropDatabase();
 });
 
-describe("/api/users", () => {
+describe("/api/users/id", () => {
     describe("DELETE", () => {
         test("200: Validates JWT, and deletes the user by user id", async () => {
             const user = new User({
@@ -42,7 +42,7 @@ describe("/api/users", () => {
             );
 
             return request(app)
-                .delete(`/api/users/${savedUser._id}`)
+                .delete(`/api/users/id/${savedUser._id}`)
                 .set("Authorization", `Bearer ${validToken}`)
                 .expect(200)
                 .then((response) => {

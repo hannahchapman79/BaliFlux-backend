@@ -4,12 +4,14 @@ const { getEndpoints } = require("./controllers/endpoints.controller");
 const connectMongoDB = require("./db/mongoConnection");
 const seedQuestions = require("./db/seeds/seedQuestions");
 const dotenv = require("dotenv");
+const cookieParser = require("cookie-parser");
 
 const envFile = `.env.${process.env.NODE_ENV || "development"}`;
 dotenv.config({ path: envFile });
 
 const app = express();
 app.use(express.json());
+app.use(cookieParser());
 
 const initializeServer = async () => {
   if (process.env.NODE_ENV !== "test") {

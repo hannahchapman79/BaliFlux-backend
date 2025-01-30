@@ -1,4 +1,5 @@
 const { insertUser, attemptLogin, selectUserByUsername, removeUserById } = require("../models/users.model")
+const jwt = require("jsonwebtoken");
 
 exports.postUser = async (request, response, next) => {
   try {
@@ -49,5 +50,24 @@ exports.postLoginAttempt = async (request, response, next) => {
     response.status(200).json({ user, accessToken });
   } catch (error) {
     next(error);
+  }
+};
+
+exports.postRefreshToken = (request, response, next) => {
+  try {
+    const refreshToken = request.cookies?.jwt;
+    if (!refreshToken) return response.status(401).json({ message: "No refresh token provided" });
+
+    const decoded = jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET);
+
+    const newAccessToken = jwt.sign(
+      { username: decoded.username },
+      process.env.ACCESS_TOKEN_SECRET,
+      { expiresIn: "15min" }
+    );
+
+    response.json({ accessToken: newAccessToken });
+  } catch (error) {
+    response.status(403).json({ message: "Invalid or expired refresh token" });
   }
 };
