@@ -5,7 +5,7 @@ function verifyToken(request, response, next) {
     if (!authHeader?.startsWith('Bearer ')) return response.status(401).send({ message: "Access denied" });
     const token = authHeader.split(' ')[1];
     try {
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
         request.userId = decoded.userId;
         next();
     } catch (error) {

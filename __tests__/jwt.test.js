@@ -37,7 +37,7 @@ describe("/api/users", () => {
                     username: "testuser", 
                     email: "ilovetravel@gmail.com" 
                 },
-                process.env.JWT_SECRET,
+                process.env.ACCESS_TOKEN_SECRET,
                 { expiresIn: "15 min" }
             );
 
@@ -82,15 +82,15 @@ describe("/api/login", () => {
                 .send(loginDetails)
                 .expect(200)
                 .then(({ body }) => {
-                    const { token, user } = body;
+                    const { accessToken, user } = body;
                     expect(user).toHaveProperty("username", "orangecat");
                     expect(user).toHaveProperty("email", "orangecat@gmail.com");
                     expect(user).not.toHaveProperty("password");
                     expect(user).toHaveProperty("user_id");
 
-                    expect(token).toBeDefined();
+                    expect(accessToken).toBeDefined();
 
-                    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+                    const decoded = jwt.verify(accessToken, process.env.ACCESS_TOKEN_SECRET);
                     expect(decoded).toMatchObject({
                         username: "orangecat",
                         email: "orangecat@gmail.com"
