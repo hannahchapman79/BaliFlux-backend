@@ -37,8 +37,16 @@ exports.deleteUserById = async (request, response, next) => {
 exports.postLoginAttempt = async (request, response, next) => {
   try {
     const loginAttempt = request.body;
-    const userResponse = await attemptLogin(loginAttempt);
-    response.status(200).send(userResponse);
+    const { user, accessToken, refreshToken } = await attemptLogin(loginAttempt);
+
+    response.cookie("jwt", refreshToken, {
+      httpOnly: true,
+      sameSite: "None",
+      secure: true,
+      maxAge: 30 * 24 * 60 * 60 * 1000, 
+    });
+
+    response.status(200).json({ user, accessToken });
   } catch (error) {
     next(error);
   }

@@ -94,19 +94,26 @@ exports.attemptLogin = async (loginAttempt) => {
     throw { status: 400, message: "Bad email or password" };
   }
 
-  const token = jwt.sign(
+  const accessToken = jwt.sign(
     { user_id: user._id, username: user.username, email: user.email },
-    process.env.JWT_SECRET,
+    process.env.ACCESS_TOKEN_SECRET,
     { expiresIn: "15min" }
+  );
+
+  const refreshToken = jwt.sign(
+    { username: user.username },
+    process.env.REFRESH_TOKEN_SECRET,
+    { expiresIn: "30d" }
   );
 
   return {
     user: {
       user_id: user._id,
       username: user.username,
-      email: user.email
+      email: user.email,
     },
-    token
+    accessToken,
+    refreshToken, 
   };
 };
 
