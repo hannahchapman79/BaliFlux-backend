@@ -35,6 +35,9 @@ const initializeServer = async () => {
 (async () => {
   try {
       await initializeServer();
+      app.listen(9090, () => {
+        console.log("Server is running...");
+      });
   } catch (error) {
       console.error('Server initialization failed:', error);
       process.exit(1);
