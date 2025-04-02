@@ -5,6 +5,7 @@ const connectMongoDB = require("./db/mongoConnection");
 const seedQuestions = require("./db/seeds/seedQuestions");
 const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
 
 const envFile = `.env.${process.env.NODE_ENV || "development"}`;
 dotenv.config({ path: envFile });
@@ -12,6 +13,13 @@ dotenv.config({ path: envFile });
 const app = express();
 app.use(express.json());
 app.use(cookieParser());
+
+app.use(cors({
+  origin: ['http://localhost:3000'],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 
 const initializeServer = async () => {
   if (process.env.NODE_ENV !== "test") {
