@@ -19,19 +19,21 @@ This backend was built using Node.js, JavaScript, Express, MongoDB, Bcrypt for p
 ### Dependencies
 
 **Development Dependencies**
-Jest: ^27.5.1
-Supertest: ^6.3.4
-MongoDB Memory Server: ^10.1.3
+- Jest: ^27.5.1
+- Supertest: ^6.3.4
+- MongoDB Memory Server: ^10.1.3
 
 **Dependencies**
-Dotenv: ^16.3.1
-Bcrypt: ^5.1.1
-Express: ^4.18.2
-Cors: ^2.8.5
-Groq SDK: ^0.9.1
-JSON Web Token: ^9.0.2
-MongoDB: ^6.12.0
-Mongoose: ^8.9.3
+- Groq SDK: ^0.9.1
+- Dotenv: ^16.3.1  
+- Nodemon: ^3.1.9  
+- Cookie Parser: ^1.4.7  
+- Bcrypt: ^5.1.1  
+- Express: ^4.18.2  
+- Cors: ^2.8.5  
+- JSON Web Token: ^9.0.2  
+- MongoDB: ^6.12.0  
+- Mongoose: ^8.9.3  
 
 **Requirements**
 Node.js: v21.1.0
