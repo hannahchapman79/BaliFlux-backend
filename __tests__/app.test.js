@@ -1,9 +1,9 @@
 const request = require("supertest");
 const app = require("../app");
 const endpoints = require("../endpoints.json");
-const mongoose = require('mongoose');
-const { MongoMemoryServer } = require('mongodb-memory-server');
-const User = mongoose.model('User'); 
+const mongoose = require("mongoose");
+const { MongoMemoryServer } = require("mongodb-memory-server");
+const User = mongoose.model("User");
 
 let mongoServer;
 
@@ -36,12 +36,11 @@ describe("GET /api", () => {
 
 describe("/api/users", () => {
   describe("POST", () => {
-    
     test("400: Responds with bad request when a username already exists", async () => {
       await User.create({
         username: "grumpycat",
         password: "Goodbye01",
-        email: "original@gmail.com"
+        email: "original@gmail.com",
       });
 
       const newUser = {
@@ -63,7 +62,7 @@ describe("/api/users", () => {
       await User.create({
         username: "originaluser",
         password: "Nature1234",
-        email: "jess@gmail.com"
+        email: "jess@gmail.com",
       });
 
       const newUser = {
@@ -80,7 +79,6 @@ describe("/api/users", () => {
           expect(body.message).toBe("Email already exists");
         });
     });
-
   });
 
   describe("GET", () => {
@@ -88,7 +86,7 @@ describe("/api/users", () => {
       const testUser = await User.create({
         username: "katie07",
         password: "password123",
-        email: "katiep@gmail.com"
+        email: "katiep@gmail.com",
       });
 
       return request(app)
@@ -97,7 +95,7 @@ describe("/api/users", () => {
         .then(({ body }) => {
           expect(body.user).toMatchObject({
             username: "katie07",
-            email: "katiep@gmail.com"
+            email: "katiep@gmail.com",
           });
         });
     });
@@ -117,7 +115,7 @@ describe("/api/users", () => {
       const testUser = await User.create({
         username: "userToDelete",
         password: "password123",
-        email: "delete@test.com"
+        email: "delete@test.com",
       });
 
       return request(app)
@@ -147,38 +145,40 @@ describe("/api/users", () => {
         });
     });
   });
-  
+
   describe("POST api/itinerary (Guest User)", () => {
-      
-      it("should generate an itinerary for a guest user", async () => {
-          const mockAnswers = {
-              interests: "Beaches",
-              cuisine: "Local Cuisine",
-              vibe: "Relaxed",
-              nature: "Waterfalls",
-              travelStyle: "Solo Adventures",
-              tripLength: "5 days",
-            };
-            
-            const response = await request(app)
-            .post("/api/itinerary")
-            .send({ isGuest: true, answers: mockAnswers })
-            .set("Content-Type", "application/json");
-            
-            expect(response.status).toBe(201);
-            expect(response.body).toHaveProperty("userId", "guest");
-            expect(response.body).toHaveProperty("result");
-            expect(response.body.result).toBeInstanceOf(Object);
-        });
-        
-        it("should return 400 if answers are missing", async () => {
-            const response = await request(app)
-            .post("/api/itinerary")
-            .send({ isGuest: true })
-            .set("Content-Type", "application/json");
-            
-            expect(response.status).toBe(400);
-            expect(response.body).toHaveProperty("message", "answers are required and userId is required for non-guest users");
-        });
+    it("should generate an itinerary for a guest user", async () => {
+      const mockAnswers = {
+        interests: "Beaches",
+        cuisine: "Local Cuisine",
+        vibe: "Relaxed",
+        nature: "Waterfalls",
+        travelStyle: "Solo Adventures",
+        tripLength: "5 days",
+      };
+
+      const response = await request(app)
+        .post("/api/itinerary")
+        .send({ isGuest: true, answers: mockAnswers })
+        .set("Content-Type", "application/json");
+
+      expect(response.status).toBe(201);
+      expect(response.body).toHaveProperty("userId", "guest");
+      expect(response.body).toHaveProperty("result");
+      expect(response.body.result).toBeInstanceOf(Object);
     });
+
+    it("should return 400 if answers are missing", async () => {
+      const response = await request(app)
+        .post("/api/itinerary")
+        .send({ isGuest: true })
+        .set("Content-Type", "application/json");
+
+      expect(response.status).toBe(400);
+      expect(response.body).toHaveProperty(
+        "message",
+        "answers are required and userId is required for non-guest users",
+      );
+    });
+  });
 });

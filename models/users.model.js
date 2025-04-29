@@ -1,48 +1,50 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const userSchema = new mongoose.Schema({
-  username: { 
-    type: String, 
-    required: true, 
-    unique: true, 
-    trim: true, 
-    lowercase: true 
+  username: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true,
+    lowercase: true,
   },
-  password: { 
-    type: String, 
-    required: true 
+  password: {
+    type: String,
+    required: true,
   },
-  email: { 
-    type: String, 
-    required: true, 
-    unique: true, 
-    trim: true, 
-    lowercase: true 
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true,
+    lowercase: true,
   },
-  createdAt: { 
-    type: Date, 
-    default: Date.now 
-  }
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model("User", userSchema);
 
 const checkUserExists = async (username, email) => {
   const existingUsername = await User.findOne({ username });
   const existingEmail = await User.findOne({ email });
-  
+
   return {
     username: !!existingUsername,
-    email: !!existingEmail
+    email: !!existingEmail,
   };
 };
 
 exports.insertUser = async (newUser) => {
-
   if (!newUser.username || !newUser.password || !newUser.email) {
-    throw { status: 400, message: "All fields are required (username, password, email)" };
+    throw {
+      status: 400,
+      message: "All fields are required (username, password, email)",
+    };
   }
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -51,7 +53,10 @@ exports.insertUser = async (newUser) => {
   }
 
   if (newUser.password.length < 8) {
-    throw { status: 400, message: "Password must be at least 8 characters long" };
+    throw {
+      status: 400,
+      message: "Password must be at least 8 characters long",
+    };
   }
 
   const conflicts = await checkUserExists(newUser.username, newUser.email);
@@ -67,17 +72,16 @@ exports.insertUser = async (newUser) => {
   const user = new User({
     username: newUser.username,
     password: hashedPassword,
-    email: newUser.email
+    email: newUser.email,
   });
 
   const savedUser = await user.save();
   return {
     user_id: savedUser._id,
     username: savedUser.username,
-    email: savedUser.email
+    email: savedUser.email,
   };
 };
-
 
 exports.attemptLogin = async (loginAttempt) => {
   if (!loginAttempt.email || !loginAttempt.password) {
@@ -97,13 +101,13 @@ exports.attemptLogin = async (loginAttempt) => {
   const accessToken = jwt.sign(
     { user_id: user._id, username: user.username, email: user.email },
     process.env.ACCESS_TOKEN_SECRET,
-    { expiresIn: "15min" }
+    { expiresIn: "15min" },
   );
 
   const refreshToken = jwt.sign(
     { username: user.username },
     process.env.REFRESH_TOKEN_SECRET,
-    { expiresIn: "30d" }
+    { expiresIn: "30d" },
   );
 
   return {
@@ -113,18 +117,18 @@ exports.attemptLogin = async (loginAttempt) => {
       email: user.email,
     },
     accessToken,
-    refreshToken, 
+    refreshToken,
   };
 };
 
 exports.selectUserByUsername = async (username) => {
   const user = await User.findOne({ username }, { password: 0 });
   if (!user) return null;
-  
+
   return {
     user_id: user._id,
     username: user.username,
-    email: user.email
+    email: user.email,
   };
 };
 
@@ -141,5 +145,5 @@ module.exports = {
   insertUser: exports.insertUser,
   attemptLogin: exports.attemptLogin,
   selectUserByUsername: exports.selectUserByUsername,
-  removeUserById: exports.removeUserById
+  removeUserById: exports.removeUserById,
 };

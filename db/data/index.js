@@ -1,1 +1,1 @@
-exports.users = require("../data/test-data/users")
+exports.users = require("../data/test-data/users");

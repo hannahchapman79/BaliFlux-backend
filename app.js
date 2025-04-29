@@ -14,18 +14,20 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
-app.use(cors({
-  origin: ['http://localhost:3000'],
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}));
+app.use(
+  cors({
+    origin: ["http://localhost:3000"],
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  }),
+);
 
 const initializeServer = async () => {
   if (process.env.NODE_ENV !== "test") {
     try {
       await connectMongoDB();
-      await seedQuestions();  
+      await seedQuestions();
     } catch (error) {
       process.exit(1);
     }
@@ -34,13 +36,13 @@ const initializeServer = async () => {
 
 (async () => {
   try {
-      await initializeServer();
-      app.listen(9090, () => {
-        console.log("Server is running...");
-      });
+    await initializeServer();
+    app.listen(9090, () => {
+      console.log("Server is running...");
+    });
   } catch (error) {
-      console.error('Server initialization failed:', error);
-      process.exit(1);
+    console.error("Server initialization failed:", error);
+    process.exit(1);
   }
 })();
 
@@ -51,36 +53,36 @@ app.use("/api/itinerary", itineraryRouter);
 
 app.use((error, request, response, next) => {
   if (error.name === "CastError" && error.kind === "ObjectId") {
-    return response.status(400).send({ 
+    return response.status(400).send({
       status: 400,
-      message: "Invalid ID format" 
+      message: "Invalid ID format",
     });
   }
 
   if (error.code === 11000) {
-    return response.status(409).send({ 
+    return response.status(409).send({
       status: 409,
-      message: "Resource already exists" 
+      message: "Resource already exists",
     });
   }
 
   if (error.status && error.message) {
-    return response.status(error.status).send({ 
+    return response.status(error.status).send({
       status: error.status,
-      message: error.message 
+      message: error.message,
     });
   }
 
-  response.status(500).send({ 
+  response.status(500).send({
     status: 500,
-    message: "Internal server error" 
+    message: "Internal server error",
   });
 });
 
 app.all("*", (request, response) => {
-  response.status(404).send({ 
+  response.status(404).send({
     status: 404,
-    message: "Path not found" 
+    message: "Path not found",
   });
 });
 

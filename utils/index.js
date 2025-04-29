@@ -1,1 +1,1 @@
-exports.checkUserExists = require("./check-user-exists")
+exports.checkUserExists = require("./check-user-exists");
