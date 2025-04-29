@@ -9,12 +9,10 @@ exports.postItinerary = async (request, response, next) => {
     const { userId, answers, isGuest = false } = request.body;
 
     if ((!userId && !isGuest) || !answers) {
-      return response
-        .status(400)
-        .json({
-          message:
-            "answers are required and userId is required for non-guest users",
-        });
+      return response.status(400).json({
+        message:
+          "answers are required and userId is required for non-guest users",
+      });
     }
 
     const generatedItinerary = await generateItinerary(
