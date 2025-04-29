@@ -47,7 +47,7 @@ const generateItinerary = async (userId, answers, isGuest = false) => {
               "duration": "e.g., 2 hours",
               "notes": "e.g., Best visited in the morning"
             },
-            "imagePlace": "Short, hyphenated keyword matching the main location or venue (e.g., 'locavore', 'balangan-beach', 'uluwatu-temple', 'seniman-coffee'). Do not include verbs like 'visit' or 'dinner at'. Only use the place or establishment name."
+            "imagePlace": "Short, hyphenated keyword matching the main location or venue (e.g., 'sa-mesa-restaurant', 'balangan-beach', 'uluwatu-temple', 'seniman-coffee', 'leke-leke-waterfall'). Do not include verbs like 'visit' or 'dinner at'."
           }
         ]
       },
