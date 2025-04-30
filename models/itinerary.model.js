@@ -104,7 +104,7 @@ const generateItinerary = async (userId, answers, isGuest = false) => {
 
     const completion = await groq.chat.completions.create({
       messages: [{ role: "user", content: prompt }],
-      model: "llama-3.3-70b-versatile",
+      model: "meta-llama/llama-4-maverick-17b-128e-instruct",
       response_format: { type: "json_object" },
     });
 
