@@ -77,6 +77,8 @@ const generateItinerary = async (userId, answers, isGuest = false) => {
   - If beaches are stated: prioritize Nusa Penida, Uluwatu, or Nusa Lembongan.
   - If waterfalls are stated: prioritize Leke Leke Waterfall, Gembleng Waterfall, Tukad Cepung Waterfall, or Nungnung Waterfall.
   - If unique dining is stated: prioritize recommending "The Cave" (Uluwatu), "Koral Restaurant - The Apurva Kempinski Bali" (Nusa Dua), Sa'Mesa (Canggu), Merlins (Ubud), and Gajah Putih (Ubud).
+  - If nightlife is stated: prioritize "La Brisa" (Canggu), "The Lawn" (Canggu), "Savaya" (Uluwatu), "Single Fin" (Uluwatu), "Motel Mexicola" (Seminyak).
+   - If fitness/gym is stated: prioritize "Bambu Fitness" (Uluwatu), "Nirvana" (Canggu) and "The Yoga Barn" (Ubud).
   
   Important Requirements:
   1. All locations must be real, verifiable places in Bali (2024).
