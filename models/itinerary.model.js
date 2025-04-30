@@ -95,6 +95,9 @@ const generateItinerary = async (userId, answers, isGuest = false) => {
   5. Include only currently operating establishments.
   6. Ensure realistic timing between activities.
   7. Maximum travel time per day: 3 hours.
+  8. Maximum number of activities per day: 2 and they must be in the same district of Bali.
+
+  
   
   Please generate a logistically sound, realistic itinerary following these specifications and format requirements.
   `;
