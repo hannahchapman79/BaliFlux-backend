@@ -78,7 +78,14 @@ const generateItinerary = async (userId, answers, isGuest = false) => {
   - If waterfalls are stated: prioritize Leke Leke Waterfall, Gembleng Waterfall, Tukad Cepung Waterfall, or Nungnung Waterfall.
   - If unique dining is stated: prioritize recommending "The Cave" (Uluwatu), "Koral Restaurant - The Apurva Kempinski Bali" (Nusa Dua), Sa'Mesa (Canggu), Merlins (Ubud), and Gajah Putih (Ubud).
   - If nightlife is stated: prioritize "La Brisa" (Canggu), "The Lawn" (Canggu), "Savaya" (Uluwatu), "Single Fin" (Uluwatu), "Motel Mexicola" (Seminyak).
-   - If fitness/gym is stated: prioritize "Bambu Fitness" (Uluwatu), "Nirvana" (Canggu) and "The Yoga Barn" (Ubud).
+  - If fitness/gym is stated: prioritize "Bambu Fitness" (Uluwatu), "Nirvana" (Canggu) and "The Yoga Barn" (Ubud).
+  - If brunch is stated: prioritize "Crate Cafe" (Canggu), "Copenhagen" (Canggu), "The Shady Shack" (Canggu), "The Loft" (Uluwatu), "Nourish" (Uluwatu), "Alchemy" (Ubud). And add the word "brunch" into the ImagePlace.
+  - If coffee culture is stated: prioritize "Seniman Coffee" (Ubud), "Revolver Espresso" (Seminyak), "Anomali Coffee" (Ubud), "Pison Coffee" (Seminyak).
+  - If local cuisine is stated: prioritize "Warung Babi Guling Ibu Oka" (Ubud), "Bubur Ayam" (Seminyak), "Warung Mak Beng" (Sanur), "Bubur Ayam" (Seminyak), "Warung Sopa" (Ubud). And add the word "warung" into the ImagePlace.
+  - If adventure sports are stated: prioritize "Bali Treetop Adventure Park" (Bedugul), "Bali Swing" (Ubud), "White Water Rafting" (Ubud), "Mount Batur Sunrise Trekking" (Kintamani).
+  - If shopping is stated: prioritize "Seminyak Village" (Seminyak), "Beachwalk Shopping Center" (Kuta), "Ubud Art Market" (Ubud), "Bali Collection" (Nusa Dua).
+  - If cultural immersion is stated: prioritize "Ubud Monkey Forest" (Ubud), "Tirta Empul Temple" (Tampaksiring), "Goa Gajah Temple" (Ubud), "Pura Taman Saraswati" (Ubud).
+  - If family-friendly is stated: prioritize "Waterbom Bali" (Kuta), "Bali Safari and Marine Park" (Gianyar), "Bali Zoo" (Gianyar), "Bali Bird Park" (Gianyar).
   
   Important Requirements:
   1. All locations must be real, verifiable places in Bali (2024).
