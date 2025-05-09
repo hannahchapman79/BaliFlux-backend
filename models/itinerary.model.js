@@ -34,6 +34,7 @@ Important Requirements (Must Follow):
 1. Each day's activities must be located within the **same general area of Bali**:
    e.g., Uluwatu, Canggu, Ubud, Seminyak, Sanur, Nusa Penida, Nusa Lembongan, or Bedugul.
    **Do not mix areas** like Uluwatu and Canggu on the same day.
+   ** Nusa Penida and Nusa Lembongan are considered separate regions and both require at least 2 nights.**
 
 2. CRITICAL: Plan the itinerary with **logical geographical progression**:
    - Group consecutive days in the **same region** with a **minimum 3-night stay** per location
