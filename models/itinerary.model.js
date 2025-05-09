@@ -52,7 +52,7 @@ Important Requirements (Must Follow):
 
 5. Include **realistic timing** for the day and ensure activities are logistically possible.
 
-6. Max 2 activities per day, ideally **morning and afternoon**.
+6. Max 2 activities per day, ideally **morning and afternoon**. Activities should be different types (e.g., avoid suggesting 2x fitness activities in the same day).
 
 7. Avoid: Kuta, Denpasar, Nusa Dua (unless family-friendly vibe is stated).
 
