@@ -42,33 +42,49 @@ Important Requirements (Must Follow):
    - AVOID illogical patterns like: Day 1 Ubud, Day 2 Uluwatu, Day 3 back to Ubud
 
 3. Respect Bali traffic conditions. Assume:
-   - Uluwatu ↔ Canggu = 1.5+ hours (schedule transition days between regions)
+   - Uluwatu ↔ Canggu = 1.5+ hours
    - Ubud ↔ Seminyak = 1.5 hours
-   - Max travel time per day: 30 to 60 mins between activities.
+   - Max travel time per day: 30 to 60 mins between activities
    - Plan **one transition day** when moving between major regions
 
 4. Only include **currently operating** and **verifiable** Bali locations (as of 2024).
+
 5. Include **realistic timing** for the day and ensure activities are logistically possible.
+
 6. Max 2 activities per day, ideally **morning and afternoon**.
+
 7. Avoid: Kuta, Denpasar, Nusa Dua (unless family-friendly vibe is stated).
+
+8. When suggesting well-known locations, offer lesser-known alternatives where possible.
+Example: Instead of Berawa or Echo Beach, recommend Seseh Beach for a quieter experience.
 
 ---
 
-Preferred Content (Based on Inputs):
+Preferred Content (Based on User Answers):
 
-If user mentions:
+**Interests**
+- Relaxed → Jungle Fish (Ubud), La Brisa (Canggu), Boheme Pool Club (Pererenan), Seseh Beach (Seseh), Keliki Coffee (Ubud), Bingin Beach (Uluwatu), Mari Beach Club (Canggu), Dreamland Beach (Uluwatu), Sideman (Sidemen) 
+- Cultural Immersion → Tirta Empul (Near Ubud), Goa Gajah (Ubud), Saraswati Temple (Ubud), Taman Dedari (Ubud), Penglipuran Village (North of Ubud), Cooking Class (Ubud or Canggu), Balinese Dance Performance at Ubud Palace (Ubud), Evening Kecak Dance at Uluwatu Temple (Uluwatu), Visit local rice farming communities (Sidemen)
+- Social & Nightlife → La Brisa (Canggu), The Lawn (Canggu), Savaya (Uluwatu), Single Fin (Uluwatu), Motel Mexicola (Canggu), Desa Kitsune (Canggu)
+- Spiritual / Mindful Retreat → Yoga Barn (Ubud), Chandra Yoga (Pererenan), Udara Bali Yoga Resort (Seseh), Radiantly Alive (Ubud), Bali Meditation Retreats (Ubud), ULU Yoga Bali (Uluwatu), Blue Earth Village (Amed), Yoga Bliss (Nusa Lembongan)
+- Off the Beaten Path → Sidemen, Amed, Seseh Beach, Kintamani, Nusa Lembongan, Jatiluwih Rice Terraces, Sebatu
+- Focused & Productive → Mimpi Grocery Cafe (Canggu), Tribal Coworking (Canggu), Sari Kitchen & Community (Canggu), Zest Cafe (Ubud), Keliki Coffee (Ubud), Suka Espresso (Uluwatu), CUPPA Espresso Bar (Uluwatu), Suka Espresso (Ubud)
+- Fitness & Gym → Bambu Fitness (Uluwatu), Nirvana (Canggu), Bali Social Club (Padel club with wellness centre and pool in Canggu), Campuhan Ridge Walk (Ubud), Jungle Padel (Ubud), Elite Fit Gym (Canggu), Titi Batu Ubud Club (Sports & Wellness Club in Ubud)
+- Adventure & Activities → White water rafting (Ubud), Bali Treetop Adventure (Bedugul), Mount Batur sunrise trek (From Ubud), ATV rides (Ubud), Surfing (Canggu, Uluwatu), Snorkeling (Amed, Nusa Penida), Diving (Amed, Tulamben), Cycling tours (Ubud, Sidemen)
 
-- **Beaches** → Prioritise: Nusa Penida, Uluwatu, Nusa Lembongan
-- **Waterfalls** → Prioritise: Leke Leke (Ubud), Tukad Cepung (Ubud), Gembleng (Sideman), Nungnung (Ubud)
-- **Unique dining** → Suggest: The Cave (Uluwatu), Koral Restaurant (Nusa Dua), Sa'Mesa (Canggu), Merlins (Ubud), Gajah Putih (Ubud)
-- **Nightlife** → Suggest: La Brisa (Canggu), The Lawn (Canggu), Savaya (Uluwatu), Single Fin (Uluwatu), Motel Mexicola (Canggu)
-- **Fitness** → Suggest: Bambu Fitness (Uluwatu), Nirvana (Canggu), The Yoga Barn (Ubud)
-- **Brunch** → Suggest: Crate Café (Canggu), Copenhagen (Canggu), Shady Shack (Canggu), The Loft (Uluwatu), Nourish (Uluwatu), Alchemy (Ubud) — Add "brunch" in \`imagePlace\`
-- **Coffee culture** → Suggest: Seniman (Ubud), Revolver (Canggi), Anomali (Ubud), Pison (Ubud)
-- **Local cuisine** → Suggest: Do not be specific about the place, just say Warung and recommend they try Babi Guling or Nasi Campur — Add "warung" in \`imagePlace\`
-- **Adventure** → Suggest: Bali Treetop (Bedugul), Rice Terrace Swing (Ubud), Rafting (Ubud), Mount Batur (Kintamani)
-- **Cultural immersion** → Suggest: Monkey Forest (Ubud), Tirta Empul (Near Ubud), Goa Gajah (Ubud), Saraswati Temple (Ubud).
-- **Shopping** → Suggest: Seminyak Village (Seminyak), Beachwalk (Kuta), Ubud Art Market (Ubud), La Brisa Sunday Market (Canggu)
+**Food Experiences**
+- Authentic Balinese Cuisine → Recommend local warungs (suggest Nasi Campur, Babi Guling; imagePlace = "warung")
+- Scenic Spots → Jungle Fish (Ubud), Rock Bar (Uluwatu), La Brisa (Pererenan), Taman Dedari (Ubud), Warung Local (local food with rice paddy views in Seseh), Sideman, Kumulilir (Coffee tasting with views in Ubud), Ankhusa Restaurant (Restaurant with jungle view and pool in Ubud), SKOOL Kitchen (Restaurant with sea view in Canggu)
+- Brunch Cafés → Crate Café, Shady Shack, Copenhagen, Nourish
+- Coffee Culture → Seniman (Ubud), Anomali (Ubud), Revolver (Canggu), Pison (Canggu)
+- Unique Dining → The Cave (Uluwatu), Koral Restaurant (Nusa Dua), Sa Mesa (Canggu), Merlins (Ubud), Gajah Putih (Ubud)
+- Any Top Rated → Suggest top-rated venues from Google nearby
+
+**Nature Spots**
+- Beaches & Coastlines → Seseh Beach (Seseh), Seminyak Beach (Seminyak) Dreamland Beach (Uluwatu), Bingin Beach (Uluwatu), Diamond Beach (Nusa Penida), Nusa Lembongan, Crystal Bay (Nusa Penida)
+- Waterfalls → Leke Leke (Ubud), Tukad Cepung (Ubud), Gembleng (Sideman), Nungnung (Ubud)
+- Volcanoes → Mount Batur sunrise trek (Kintamani), Mount Agung (Tirta Gangga), Paperhills Cafe (Kintamani), Amed (beach views of Mount Agung)
+- Rice Terraces → Tegalalang (Ubud), Sidemen area, Jatiluwih (Jatiluwih), Sebatu (Ubud)
 
 ---
 
@@ -112,12 +128,12 @@ Return a valid JSON object with this structure:
 Critical Constraints Summary:
 - Plan with **logical geographical progression**
 - **Minimum 3 consecutive nights** in each region
-- Group each day's activities **by area** (Uluwatu / Canggu / Ubud / etc)
+- Group each day's activities **by area**
 - Max **2 activities per day** in the **same region**
 - Max **60 mins total travel time per day** (except transition days)
 - Use **2024 prices and venues** only
-- **Do not use**: Kuta, Denpasar, Nusa Dua (unless stated family-friendly)
-- **Reject any response** that breaks these rules
+- Do not use Kuta, Denpasar, Nusa Dua
+- Reject any response that breaks these rules
 
 Please generate a **realistic**, **logistically sound**, and **locally accurate** itinerary using these instructions and return it as a JSON object only.
 `;
