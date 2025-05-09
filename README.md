@@ -1,10 +1,10 @@
-# BaliFlux Backend
+# BaliGuide Backend
 
 Hosted version: https://baliflux-backend.onrender.com
 
 ## Description
 
-BaliFlux Backend is the Node.js and MongoDB-powered API that supports BaliFlux. It manages user authentication and AI-driven recommendations, ensuring all information is secure and easily accessible.  
+BaliGuide Backend is the Node.js and MongoDB-powered API that supports BaliGuide. It manages user authentication and AI-driven recommendations, ensuring all information is secure and easily accessible.  
 <br>
 This backend was built using Node.js, JavaScript, Express, MongoDB, Bcrypt for password hashing and JWT.  
 <br>
