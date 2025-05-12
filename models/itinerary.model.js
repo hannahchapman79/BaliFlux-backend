@@ -34,7 +34,9 @@ Important Requirements (Must Follow):
 1. Each day's activities must be located within the **same general area of Bali**:
    e.g., Uluwatu, Canggu, Ubud, Seminyak, Sanur, Nusa Penida, Nusa Lembongan, or Bedugul.
    **Do not mix areas** like Uluwatu and Canggu on the same day.
-   ** Nusa Penida and Nusa Lembongan are considered separate regions and both require at least 2 nights.**
+   ** Nusa Penida and Nusa Lembongan are considered separate islands and both require at least 2 nights seperately.**
+  Nusa Penida includes: Diamond Beach, Crystal Bay, Angels Billabong, Broken Beach and snorkelling at Manta Point to view manta rays. You can also see manta rays from cliffs at Nusa Penida (this can ba a tip)
+	•	Nusa Lembongan includes: Devils Tear, Mushroom Bay.
 
 2. CRITICAL: Plan the itinerary with **logical geographical progression**:
    - Group consecutive days in the **same region** with a **minimum 3-night stay** per location
@@ -52,7 +54,7 @@ Important Requirements (Must Follow):
 
 5. Include **realistic timing** for the day and ensure activities are logistically possible.
 
-6. Max 2 activities per day, ideally **morning and afternoon**. Activities should be different types (e.g., avoid suggesting 2x fitness activities in the same day).
+6. Max 2 activities per day, ideally **morning and afternoon**. Activities should be different types (e.g., avoid suggesting 2x fitness activities in the same day. Max 1x Cultural Immersion activity per day. Do not combine recommendations into 1 activity).
 
 7. Avoid: Kuta, Denpasar, Nusa Dua (unless family-friendly vibe is stated).
 
@@ -64,7 +66,7 @@ Example: Instead of Berawa or Echo Beach, recommend Seseh Beach for a quieter ex
 Preferred Content (Based on User Answers):
 
 **Interests**
-- Relaxed → Jungle Fish (Ubud), La Brisa (Canggu), Boheme Pool Club (Pererenan), Seseh Beach (Seseh), Keliki Coffee (Ubud), Bingin Beach (Uluwatu), Mari Beach Club (Canggu), Dreamland Beach (Uluwatu), Sideman (Sidemen) 
+- Relaxed → Jungle Fish (A restaurant and pool club in the jungle, in Ubud), La Brisa (Canggu), Boheme Pool Club (Pererenan), Seseh Beach (Seseh), Keliki Coffee (cafe with jungle viewpoint in Ubud), Bingin Beach (Uluwatu), Mari Beach Club (Canggu), Dreamland Beach (Uluwatu), Sideman (Sidemen), Mushroom Beach (Nusa Lembongan), Crystal Bay (Nusa Penida)
 - Cultural Immersion → Tirta Empul (Near Ubud), Goa Gajah (Ubud), Saraswati Temple (Ubud), Taman Dedari (Ubud), Penglipuran Village (North of Ubud), Cooking Class (Ubud or Canggu), Balinese Dance Performance at Ubud Palace (Ubud), Evening Kecak Dance at Uluwatu Temple (Uluwatu), Visit local rice farming communities (Sidemen)
 - Social & Nightlife → La Brisa (Canggu), The Lawn (Canggu), Savaya (Uluwatu), Single Fin (Uluwatu), Motel Mexicola (Canggu), Desa Kitsune (Canggu)
 - Spiritual / Mindful Retreat → Yoga Barn (Ubud), Chandra Yoga (Pererenan), Udara Bali Yoga Resort (Seseh), Radiantly Alive (Ubud), Bali Meditation Retreats (Ubud), ULU Yoga Bali (Uluwatu), Blue Earth Village (Amed), Yoga Bliss (Nusa Lembongan)
@@ -76,13 +78,13 @@ Preferred Content (Based on User Answers):
 **Food Experiences**
 - Authentic Balinese Cuisine → Recommend local warungs (suggest Nasi Campur, Babi Guling; imagePlace = "warung")
 - Scenic Spots → Jungle Fish (Ubud), Rock Bar (Uluwatu), La Brisa (Pererenan), Taman Dedari (Ubud), Warung Local (local food with rice paddy views in Seseh), Sideman, Kumulilir (Coffee tasting with views in Ubud), Ankhusa Restaurant (Restaurant with jungle view and pool in Ubud), SKOOL Kitchen (Restaurant with sea view in Canggu)
-- Brunch Cafés → Crate Café, Shady Shack, Copenhagen, Nourish
+- Brunch Cafés → Crate Café (Canggu), Shady Shack (Canggu), Copenhagen (Canggu), Nourish (Uluwatu), Milk & Madu (Ubud), Sari Kitchen (Canggu), Suka Espresso (Ubud)
 - Coffee Culture → Seniman (Ubud), Anomali (Ubud), Revolver (Canggu), Pison (Canggu)
 - Unique Dining → The Cave (Uluwatu), Koral Restaurant (Nusa Dua), Sa Mesa (Canggu), Merlins (Ubud), Gajah Putih (Ubud)
 - Any Top Rated → Suggest top-rated venues from Google nearby
 
 **Nature Spots**
-- Beaches & Coastlines → Seseh Beach (Seseh), Seminyak Beach (Seminyak) Dreamland Beach (Uluwatu), Bingin Beach (Uluwatu), Diamond Beach (Nusa Penida), Nusa Lembongan, Crystal Bay (Nusa Penida)
+- Beaches & Coastlines → Seseh Beach (Seseh), Seminyak Beach (Seminyak), Dreamland Beach (Uluwatu), Bingin Beach (Uluwatu), Diamond Beach (Nusa Penida), Mushroom Beach (Nusa Lembongan), Crystal Bay (Nusa Penida)
 - Waterfalls → Leke Leke (Ubud), Tukad Cepung (Ubud), Gembleng (Sideman), Nungnung (Ubud)
 - Volcanoes → Mount Batur sunrise trek (Kintamani), Mount Agung (Tirta Gangga), Paperhills Cafe (Kintamani), Amed (beach views of Mount Agung)
 - Rice Terraces → Tegalalang (Ubud), Sidemen area, Jatiluwih (Jatiluwih), Sebatu (Ubud)
