@@ -61,6 +61,8 @@ Important Requirements (Must Follow):
 8. When suggesting well-known locations, offer lesser-known alternatives where possible.
 Example: Instead of Berawa or Echo Beach, recommend Seseh Beach for a quieter experience.
 
+9. When user interests is "off the beaten path", suggest places that are in the off the beaten path list below
+
 ---
 
 Preferred Content (Based on User Answers):
