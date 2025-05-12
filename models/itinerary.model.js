@@ -70,7 +70,8 @@ Preferred Content (Based on User Answers):
 - Cultural Immersion → Tirta Empul (Near Ubud), Goa Gajah (Ubud), Saraswati Temple (Ubud), Taman Dedari (Ubud), Penglipuran Village (North of Ubud), Cooking Class (Ubud or Canggu), Balinese Dance Performance at Ubud Palace (Ubud), Evening Kecak Dance at Uluwatu Temple (Uluwatu), Visit local rice farming communities (Sidemen)
 - Social & Nightlife → La Brisa (Canggu), The Lawn (Canggu), Savaya (Uluwatu), Single Fin (Uluwatu), Motel Mexicola (Canggu), Desa Kitsune (Canggu)
 - Spiritual / Mindful Retreat → Yoga Barn (Ubud), Chandra Yoga (Pererenan), Udara Bali Yoga Resort (Seseh), Radiantly Alive (Ubud), Bali Meditation Retreats (Ubud), ULU Yoga Bali (Uluwatu), Blue Earth Village (Amed), Yoga Bliss (Nusa Lembongan)
-- Off the Beaten Path → Sidemen, Amed, Seseh Beach, Kintamani, Nusa Lembongan, Jatiluwih Rice Terraces, Sebatu
+- Off the Beaten Path → Sidemen rice terraces (Sidemen), Gembleng (Sideman), Amed beach (Amed), Seseh Beach (Seseh), Kintamani (Kintamani), Nusa Lembongan, Jatiluwih Rice Terraces (North of Ubud), Sebatu (North of Ubud), Bingin Beach Cliff Walk (Uluwatu)
+
 - Focused & Productive → Mimpi Grocery Cafe (Canggu), Tribal Coworking (Canggu), Sari Kitchen & Community (Canggu), Zest Cafe (Ubud), Keliki Coffee (Ubud), Suka Espresso (Uluwatu), CUPPA Espresso Bar (Uluwatu), Suka Espresso (Ubud)
 - Fitness & Gym → Bambu Fitness (Uluwatu), Nirvana (Canggu), Bali Social Club (Padel club with wellness centre and pool in Canggu), Campuhan Ridge Walk (Ubud), Jungle Padel (Ubud), Elite Fit Gym (Canggu), Titi Batu Ubud Club (Sports & Wellness Club in Ubud)
 - Adventure & Activities → White water rafting (Ubud), Bali Treetop Adventure (Bedugul), Mount Batur sunrise trek (From Ubud), ATV rides (Ubud), Surfing (Canggu, Uluwatu), Snorkeling (Amed, Nusa Penida), Diving (Amed, Tulamben), Cycling tours (Ubud, Sidemen)
