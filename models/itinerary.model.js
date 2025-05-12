@@ -36,7 +36,7 @@ Important Requirements (Must Follow):
    **Do not mix areas** like Uluwatu and Canggu on the same day.
    ** Nusa Penida and Nusa Lembongan are considered separate islands and both require at least 2 nights seperately.**
   Nusa Penida includes: Diamond Beach, Crystal Bay, Angels Billabong, Broken Beach and snorkelling at Manta Point to view manta rays. You can also see manta rays from cliffs at Nusa Penida (this can ba a tip)
-	•	Nusa Lembongan includes: Devils Tear, Mushroom Bay.
+	•	Nusa Lembongan includes: Devils Tear, Mushroom Bay, Sandy Bay Beach, Snorkel at Mangrove Point.
 
 2. CRITICAL: Plan the itinerary with **logical geographical progression**:
    - Group consecutive days in the **same region** with a **minimum 3-night stay** per location
